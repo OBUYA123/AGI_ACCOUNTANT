@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: agi-accountant-backend
+    env: node
+    region: ohio
+    plan: free
+    branch: main
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: API_VERSION
+        value: v1
+      # All other environment variables should be added via Render Dashboard
+      # for security (see DEPLOYMENT.md for complete list)
