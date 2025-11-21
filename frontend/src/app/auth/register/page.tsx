@@ -39,7 +39,10 @@ export default function RegisterPage() {
 
     try {
       const { confirmPassword, ...registrationData } = formData;
-      const response = await api.post("/auth/register", registrationData);
+      const response = await api.post(
+        "/api/v1/auth/register",
+        registrationData
+      );
       const { token, refreshToken, user } = response.data.data;
 
       // Store tokens
