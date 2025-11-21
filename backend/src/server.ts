@@ -78,7 +78,24 @@ app.use(
 );
 
 // Handle preflight requests explicitly
-app.options("*", cors());
+app.options("*", (req, res) => {
+  const allowedOrigin =
+    typeof req.headers.origin === "string" ? req.headers.origin : "";
+  const allowedOrigins = config.cors.origins;
+  if (allowedOrigin && allowedOrigins.includes(allowedOrigin)) {
+    res.setHeader("Access-Control-Allow-Origin", allowedOrigin);
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET,POST,PUT,PATCH,DELETE,OPTIONS"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization, X-Requested-With, Accept, Origin"
+    );
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+  }
+  res.status(200).end();
+});
 
 /**
  * Body Parser Middleware
