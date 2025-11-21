@@ -56,9 +56,22 @@ app.use(
   cors({
     origin: config.cors.origins,
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "X-Requested-With",
+      "Accept",
+      "Origin",
+    ],
+    exposedHeaders: ["Content-Range", "X-Content-Range"],
     optionsSuccessStatus: 200,
+    maxAge: 86400, // 24 hours
   })
 );
+
+// Handle preflight requests explicitly
+app.options("*", cors());
 
 /**
  * Body Parser Middleware
