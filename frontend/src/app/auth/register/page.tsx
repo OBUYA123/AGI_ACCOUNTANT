@@ -82,10 +82,15 @@ export default function RegisterPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="register-firstName"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 First Name
               </label>
               <input
+                id="register-firstName"
+                name="firstName"
                 type="text"
                 required
                 value={formData.firstName}
@@ -93,13 +98,19 @@ export default function RegisterPage() {
                   setFormData({ ...formData, firstName: e.target.value })
                 }
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                autoComplete="given-name"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="register-lastName"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Last Name
               </label>
               <input
+                id="register-lastName"
+                name="lastName"
                 type="text"
                 required
                 value={formData.lastName}
@@ -107,15 +118,21 @@ export default function RegisterPage() {
                   setFormData({ ...formData, lastName: e.target.value })
                 }
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                autoComplete="family-name"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label
+              htmlFor="register-email"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >
               Email
             </label>
             <input
+              id="register-email"
+              name="email"
               type="email"
               required
               value={formData.email}
@@ -124,14 +141,20 @@ export default function RegisterPage() {
               }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               placeholder="you@example.com"
+              autoComplete="email"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label
+              htmlFor="register-phone"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >
               Phone (Optional)
             </label>
             <input
+              id="register-phone"
+              name="phone"
               type="tel"
               value={formData.phone}
               onChange={(e) =>
@@ -139,14 +162,20 @@ export default function RegisterPage() {
               }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               placeholder="+1234567890"
+              autoComplete="tel"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label
+              htmlFor="register-password"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >
               Password
             </label>
             <input
+              id="register-password"
+              name="password"
               type="password"
               required
               value={formData.password}
@@ -155,6 +184,7 @@ export default function RegisterPage() {
               }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               placeholder="••••••••"
+              autoComplete="new-password"
             />
             <p className="mt-1 text-xs text-gray-500">
               Must be at least 8 characters
@@ -162,10 +192,15 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label
+              htmlFor="register-confirmPassword"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >
               Confirm Password
             </label>
             <input
+              id="register-confirmPassword"
+              name="confirmPassword"
               type="password"
               required
               value={formData.confirmPassword}
@@ -174,6 +209,7 @@ export default function RegisterPage() {
               }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               placeholder="••••••••"
+              autoComplete="new-password"
             />
           </div>
 

@@ -1,6 +1,6 @@
 import User from "../models/User";
 import logger from "./logger";
-import config from "../config";
+import { config } from "../config/index";
 import speakeasy from "speakeasy";
 
 /**

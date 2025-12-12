@@ -75,10 +75,15 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label
+              htmlFor="login-email"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >
               Email
             </label>
             <input
+              id="login-email"
+              name="email"
               type="email"
               required
               value={formData.email}
@@ -87,14 +92,20 @@ export default function LoginPage() {
               }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               placeholder="you@example.com"
+              autoComplete="email"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label
+              htmlFor="login-password"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >
               Password
             </label>
             <input
+              id="login-password"
+              name="password"
               type="password"
               required
               value={formData.password}
@@ -103,15 +114,21 @@ export default function LoginPage() {
               }
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               placeholder="••••••••"
+              autoComplete="current-password"
             />
           </div>
 
           {show2FA && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="login-2fa"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 2FA Code
               </label>
               <input
+                id="login-2fa"
+                name="twoFactorToken"
                 type="text"
                 required
                 maxLength={6}
@@ -121,6 +138,7 @@ export default function LoginPage() {
                 }
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white text-center text-2xl tracking-widest"
                 placeholder="000000"
+                autoComplete="one-time-code"
               />
             </div>
           )}

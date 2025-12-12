@@ -7,13 +7,12 @@ import compression from "compression";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import * as Sentry from "@sentry/node";
-import config from "./config";
+import { config } from "./config/index";
 import { connectDatabase } from "./config/database";
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler";
 import { apiLimiter } from "./middleware/rateLimiter";
 import logger from "./utils/logger";
-import { createSuperAdmin } from "./utils/createSuperAdmin";
-import { createTestStudent } from "./utils/createTestStudent";
+import { createSuperAdmin, createTestStudent } from "./utils";
 
 // Import Routes
 import authRoutes from "./routes/authRoutes";
